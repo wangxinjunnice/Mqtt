@@ -1,0 +1,22 @@
+server:
+  port: 9000
+
+spring:
+    mqtt:
+       enabled: true
+       inbound: # 消费者
+         url: tcp://49.233.209.28:1883
+         clientId: ${random.value}
+         topics: topic,topic1
+         completionTimeout: 3000 #连接超时
+       outbound: # 生产者
+         urls: tcp://49.233.209.28:1883
+         clientId: ${random.value}
+         topic: topic
+
+logging:
+    level:
+     org:
+      springfromework:
+        web: INFO
+    file: C:\Users\wangxinjun\Desktop\log\mqtt.log
